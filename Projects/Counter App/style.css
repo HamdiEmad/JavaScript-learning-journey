@@ -1,0 +1,24 @@
+#count {
+    display: block;
+    text-align: center;
+    font-size: 10em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#div1 {
+    text-align: center;
+}
+
+.btns {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: brown;
+    background-color:aqua;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color .25;
+}
+
+.btns:hover {
+    background-color: hsl(214, 100%, 56%)
+}
