@@ -367,3 +367,255 @@ You can write multiple lines of comments here.
     document.getElementById("h1").textContent = mask_1;
     document.getElementById("h1").textContent = mask_2;
 */
+
+/* while loops
+    let userName = "";
+
+    while (userName === "" || userName === null)
+        userName = window.prompt("Enter your name")
+
+    console.log(userName);
+    
+    let userName = "";
+
+    do {
+        userName = window.prompt("Enter your name")
+    } while (userName === "" || userName === null)
+
+    console.log(userName);
+*/
+
+/* for loops
+    for (let i = 0; i < 5; i++)
+    {
+        if (i == 3)
+            continue;
+        console.log(i);
+    }
+
+    for (let i = 0; i < 5; i++)
+    {
+        if (i == 3)
+            break;
+        else
+            console.log(i);
+    }
+*/
+
+/* Number Guessing Game
+    const min = 1;
+    const max = 100;
+    const ans = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    let attempts = 0;
+    let guess;
+    let running = true;
+
+    while (running)
+    {
+        guess = window.prompt(`Guess a number between ${min} and ${max}:`)
+        guess = Number(guess);
+
+        if (isNaN(guess) || guess < min || guess > max)
+            window.alert("Please enter a valid number");
+        else
+            {
+                attemps++;
+                if (guess < ans)
+                    window.alert("TOO LOW! TRY AGAIN!");
+                else if (guess > ans)
+                    window.alert("TOO HIGH! TRY AGAIN!");
+                else
+                {
+                    window.alert(`CORRECT, The number was ${answer} and you tried for ${attempts} times`);
+                    running = false;
+                }
+        }
+    }
+*/
+
+/* Functions
+    function hello(name, age)
+    {
+        document.getElementById("h1").textContent = name;
+    }
+
+    hello("Hamdi", 22);
+    
+    function func(x)
+    {
+        return x % 2 === 0 ? true : false ;
+    }
+    
+    document.getElementById("h1").textContent = func("2");
+*/
+
+/* Variable Scope (local vs global)
+    let x = 11;
+
+    function f1()
+    {
+        console.log(x);
+    }
+
+    function f2()
+    {
+        console.log(x);
+    }
+
+    f2();
+*/
+
+/* Temperature Conversion game
+    const temp = document.getElementById("temp")
+    const kel = document.getElementById("kel")
+    const feh = document.getElementById("feh")
+    const btn = document.getElementById("btn")
+    const res = document.getElementById("res")
+
+    btn.onclick = function() {
+        let tmp = temp.value;
+
+        if (isNaN(tmp))
+        {
+            res.textContent = "Enter a valid number!";
+        }
+
+        else
+        {
+            if (kel.checked)
+            {
+                res.textContent = kelvin(tmp);
+            }
+            else if (feh.checked)
+            {
+                res.textContent = fehrenheit(tmp);
+            }
+            else
+                res.textContent = tmp;
+        }
+    }
+
+
+    function kelvin(temp)
+    {
+        return Number(temp) + 273.15;
+    }
+
+    function fehrenheit(temp)
+    {
+        return ((Number(temp) * 1.8) + 32);
+    }
+*/
+
+/* Arrays
+    let fruits = ["apple", "orange", "coconut", "banana"];
+
+    //fruits[1] = "coconut"
+    //fruits.push("orange");
+    //fruits.pop();
+    //fruits.unshift("coconut");
+    //fruits.shift();
+
+    // for (let i = 0; i < fruits.length; i++)
+    //     console.log(fruits[i]);
+
+    //let num = fruits.length;
+    //let num = fruits.indexOf("orange");
+    //let num = fruits.indexOf("mango");
+
+    //fruits.sort();
+    fruits.sort().reverse();
+
+    for (let fruit of fruits)
+    {
+        console.log(fruit);
+    }
+*/
+
+/* Spread operator : allows an iterable such as an array or string to be expanded into separate elements (unpack the elements).
+
+    let nums = [1, 2, 3, 4, 5];
+
+    let min = Math.min(...nums);
+    let max = Math.max(...nums);
+
+    console.log(min, max);
+
+    let username = "Hamdi Emad";
+    let chars = [...username].join("-");
+
+    console.log(chars);
+    
+    let num1 = [1, 2, 3];
+    let num2 = [4, 5, 6];
+    
+    let all = [...num1, ...num2, 7, 8];
+    
+    console.log(all);
+*/
+
+/* Rest parameters : (...rest) allow a function work with a variable number of arguments by handling them into an array
+
+spread = expand an array into separete elements
+rest = bundles separate elements into an array
+    
+    const a = 1;
+    const b = 2;
+    const c = 3;
+    const d = 4;
+
+    print_arr(a, b, c, d);
+
+    let n = make_arr(1, 2, 3, 4, 5);
+    console.log(n);
+
+    function print_arr(...nums) {
+        console.log(nums);
+    }
+
+    function make_arr(...nums) {
+        return nums
+    }
+    
+    function sum(...nums) {
+        let res = 0;
+        res = res;
+    
+        for (let num of nums)
+        {
+            res += num;  
+        }
+        return res;
+    }
+    
+    const x = sum(2, 1, 10, 9);
+    console.log(x);
+    
+    function concat(...names) {
+        return names.join(" ");
+    }
+    
+    const test = concat("Hamdi ", "Emad ", "Hamdi");
+    console.log(test);
+*/
+
+/* Dice roller game
+    function rollDice() {
+        const numOfDice = document.getElementById("numOfDice").value;
+        const diceResult = document.getElementById("result");
+        const diceImages = document.getElementById("image");
+
+        const values = [];
+        const images = [];
+
+        for (let i = 0; i < numOfDice; i++)
+        {
+            const value = Math.floor(Math.random() * 6 + 1);
+            values.push(value);
+            images.push(`<img src="Projects/Dice Roller/dice_images/${value}.png" alt = "Dice ${value}">`);
+        }
+        diceResult.textContent = `dice: ${values.join(', ')}`
+        diceImages.innerHTML = images.join('');
+    }
+*/
