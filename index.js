@@ -917,3 +917,279 @@ Function expressions: a way to define functions as values or variables
     const person4 = new Person("Sayed", 36);
     console.log(Person.numOfPersons);
 */
+
+/* Inheritance
+    class Animal {
+        alive = true;
+
+        eat() {console.log(`This ${this.name} is eating`)};
+    }
+
+    class Rabbit extends Animal {
+        name = "Rabbit"
+    }
+
+    const rabbit = new Rabbit();
+
+    rabbit.eat();
+*/
+
+/* super: it is used in classes to call the constructor or access the properties and methods of a parent (superclass)
+this => this object
+super => the parent
+
+    class Animal {
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        move(speed) {
+            console.log(`This ${this.name} is moving at a speed of ${this.speed}m/s`);
+        }
+    }
+
+    class Rabbit extends Animal {
+        constructor(name, age, runSpeed) {
+            super(name, age);
+            this.runSpeed = runSpeed;
+        }
+        run() {
+            console.log(`This ${this.name} can run`);
+            super.move(this.runSpeed);
+        }
+    }
+        
+    class Fish extends Animal {
+        constructor(name, age, swimSpeed) {
+            super(name, age);
+            this.runSpeed = swimSpeed;
+        }
+    }
+
+    const rabbit = new Rabbit("r1", 3, 12);
+    console.log(rabbit);
+*/
+
+/* Getters & Setters
+
+    class Rectangle {
+        constructor(width, length) {
+            this.width = width;
+            this.length = length;
+        }
+
+        set width(newWidth) {
+            if (newWidth > 0)
+                this._width = newWidth; // for private property
+            else
+                console.error("Width must be a positive number");
+        }
+
+        set length(newLength) {
+            if (newLength > 0)
+                this._length = newLength; // for private property
+            else
+                console.error("Length must be a positive number");
+        }
+
+        get width() {
+            return this._width;
+        }
+
+        get length() {
+            return this._length;
+        }
+    }
+
+    const rectangle = new Rectangle(1, 5);
+    console.log(rectangle.width);
+*/
+
+/* Destructuring: extract values from arrays and objects then assign them to variables in a convenient way
+[] => to perform array destructuring
+() => to perform object destructuring
+
+    // EX1: Swapping of two variables
+    let a = 1;
+    let b = 2;
+
+    console.log(a, b);
+
+    [a, b] = [b, a];
+
+    console.log(a, b);
+    
+    // EX2: Swap two element in an array
+    const nums = [1, 2, 3, 4, 5];
+    console.log(nums);
+    [nums[0], nums[4]] = [nums[4], nums[0]];
+    console.log(nums);
+
+    // EX3: assign array elements to variables
+    const colors = ["red", "green", "yellow", "blue", "white"];
+    
+    const [first, second, third, ...extra] = colors;
+    
+    console.log(first, second, third);
+    console.log(extra);
+
+    // EX4: extract values from object
+    const person = {
+        firstName: "Hamdi",
+        lastname: "Elgohary",
+        age: 22,
+    }
+    
+    const {firstName, lastname, age} = person;
+    
+    console.log(firstName, lastname, age);
+    
+    // EX5: Destructure in function parameters
+    const person = {
+        firstname: "Hamdi",
+        lastname: "Elgohary",
+        age: 22,
+    }
+    
+    function displayPerson({firstname, lastname, age, job = "Engineer"}) {
+        console.log(`name: ${firstname} ${lastname}`);
+        console.log(`age: ${age}`);
+        console.log(`job: ${job}`)
+    }
+    
+    displayPerson(person);
+*/
+
+/* nested objects: Objects inside of other objects
+    const person = {
+        fullName: "Hamdi Emad",
+        age: 22,
+        address: {
+            street: "124 lol St.",
+            city: "homosiya",
+            country: "Locomotia"
+        }
+    }
+
+    console.log(person.fullName);
+    console.log(person.age);
+    console.log(person.address);
+*/
+
+/* Array of objects
+    const fruits = [{name: "apple", color: "red", price: 5},
+                {name: "banana", color: "yellow", price: 2},
+                {name: "orange", color: "orange", price: 3},
+                {name: "grape", color: "purple", price: 4},
+                {name: "strawberry", color: "red", price: 6}];
+
+    fruits.forEach(fruit => console.log(fruit));
+
+    const fruitnames = fruits.map((element) => element.name);
+
+    console.log(fruitnames);
+*/
+
+/* sort() : method used to sort elements of an array in place.
+    sort elements as strings in lexicographic order, not alphabetical.
+    lexicographic = (alphabet + numbers + symbols) as strings
+
+    let numbers = [1, 2, 5, 6, 10, 3, 8, 4, 7, 9];
+    numbers.sort((a, b) => a - b);
+    console.log(numbers);
+*/
+
+/* shuffle an array
+    const cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 'J', 'Q', 'K'];
+
+    shuffle(cards);
+
+    console.log(cards);
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const random = Math.floor(Math.random() * (i + 1));
+
+            [array[i], array[random]] = [array[random], array[i]]
+        }
+    }
+*/
+
+/* Date objects
+    const date = new Date();
+    console.log(date);
+    const date2 = new Date(2004, 10, 4, 3, 45, 24, 6);
+    console.log(date2);
+    const date3 = new Date("2004-11-04T12:00:00Z");
+    console.log(date3);
+    const date4 = new Date(1700000000000);
+    console.log(date4);
+
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    const dayOfWeek = date.getDay();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+
+    console.log(year);
+    console.log(month);
+    console.log(day);
+    console.log(dayOfWeek);
+    console.log(hour);
+    console.log(minute);
+    console.log(second);
+*/
+
+/* Closure: a function defined inside of another function, the inner function has access to the variables and scope of the outer function.
+    Allow for private variables and state maintenance.
+    Used frequently in JS frameworks: React, Vue, Angular
+
+    function outer() {
+        let message = "Hello";
+    
+        function inner() {
+            console.log(message);
+        }
+    
+        inner();
+    }
+    
+    outer();
+*/
+
+/* setTimeout(callback, delay)  
+    const timeID = setTimeout(() => window.alert("Hello"), 3000);
+    clearTimeout(timeID);
+
+    let timeID;
+    
+    function start() {
+        timeID = setTimeout(() => {
+            window.alert("Hello");
+        }, 3000);
+    }
+    
+    function cancel() {
+        clearTimeout(timeID);
+    }
+*/
+
+/* Digital Clock Program
+    function updateClock() {
+        const now = new Date();
+        let hours = now.getHours();
+        hours = hours % 12 || 12;
+        hours = hours.toString().padStart(2, 0);
+        const meridiem = hours >= 12 ? "PM" : "AM";
+        const minutes = now.getMinutes().toString().padStart(2, 0);
+        const seconds = now.getSeconds().toString().padStart(2, 0);
+        const timeString = `${hours}:${minutes}:${seconds} ${meridiem}`
+        document.getElementById("clock1").textContent = timeString;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+*/
+
