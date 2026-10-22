@@ -619,3 +619,301 @@ rest = bundles separate elements into an array
         diceImages.innerHTML = images.join('');
     }
 */
+
+/* Random Password Generator
+
+    const passLength = document.getElementById("pass");
+
+    const includeLowerCase = document.getElementById("lower");
+    const includeUpperCase = document.getElementById("upper");
+    const includeNumbers = document.getElementById("numbers");
+    const includeSymbols = document.getElementById("symbols");
+    const generatedPass = document.getElementById("h3");
+    const generateBtn = document.getElementById("btn");
+
+    generateBtn.onclick = function() {
+        let generated = "";
+        let pass = ""
+        let length = passLength.value;
+
+        const symbols = "!@#$%^&{}[]()~*-+/";
+        const lower = "abcdefghijklmnopqrstuvwxyz";
+        const upper = lower.toUpperCase();
+        const numbers = "0123456789";
+
+        if (length <= 0)
+            pass = `Password length must be at least 1 character`;
+        
+        generated += includeLowerCase.checked ? lower : "";
+        generated += includeUpperCase.checked ? upper : "";
+        generated += includeNumbers.checked ? numbers : "";
+        generated += includeSymbols.checked ? symbols : "";
+
+        if (generated.length === 0)
+            pass = `Password should contain at least letters`
+            else
+            {
+                for (let i = 0; i < length; i++)
+                {
+                    const char = Math.floor(Math.random() * generated.length);
+                pass += generated[char];
+                }
+            }
+
+        generatedPass.textContent = pass;
+    }
+*/
+
+/* Callback : used to handle asynchoronous operations:
+1. Reading a file
+2. Network request
+3. Interacting with databases
+
+    function hello(callback)
+    {
+        console.log("Hello!");
+        callback();
+    }
+
+    function goodbye()
+    {
+        console.log("Goodbye!");
+    }
+
+    hello(goodbye);
+    
+    function sum(n1, n2, callback)
+    {
+        let res = n1 + n2;
+        callback(res);
+    }
+    
+    function display(res)
+    {
+        console.log(res);
+    }
+    
+    sum(2, 3, display);
+*/
+
+/* forEach() method : used to iterate over the elements of an array and apply a specified function (callback) to each element
+array.forEach(callback)
+element, index, array are provided
+
+    let numbers = [1, 2, 3, 4, 5];
+
+    numbers.forEach(double);
+    numbers.forEach(display);
+
+    function display(element)
+    {
+        console.log(element);
+    }
+
+    function double(element, index, array)
+    {
+        array[index] = element * 2;
+    }
+    
+    let fruits = ["apple", "banana", "coconut", "orange"];
+    
+    fruits.forEach(capitalize);
+    fruits.forEach(display);
+    
+    function display(element)
+    {
+        console.log(element);
+    }
+    
+    function capitalize(element, index, array)
+    {
+        array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+    }
+*/
+
+/* .map() method: accepts a callback and applies that function to each element of ana array, then return a new array
+
+    const nums = [1, 2, 3, 4, 5];
+
+    function square(element)
+    {
+        return Math.pow(element, 2);
+    }
+
+    function display(element)
+    {
+        console.log(element);
+    }
+
+    const squares = nums.map(square);
+    squares.forEach(display);
+
+*/
+
+/* .filter() method: creates a new array by filtering our elements
+    
+    let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const arr = numbers.filter(isEven);
+    console.log(arr);
+
+
+    function isEven(element)
+    {
+        return element % 2 === 0;
+    }
+*/
+
+/* .reduce() method: reduce the element of a single array to a single value
+    const nums = [1, 2, 3, 4, 5];
+
+    function sum(accumulator, element)
+    {
+        return accumulator + element;
+    }
+
+    const total = nums.reduce(sum);
+
+    console.log(total);
+    
+    const grade = [30, 60, 10, 85, 65, 90];
+    
+    function getMax(prev, next)
+    {
+        return Math.max(prev, next);
+    }
+    
+    console.log(grade.reduce(getMax));
+    console.log(Math.max(...grade));
+*/
+
+/* Function declaration: define a reusable block of code that perform a specific task
+
+Function expressions: a way to define functions as values or variables
+
+    const hello = function() {
+        console.log("hello");
+    }
+
+    hello();
+    
+    setTimeout(function() {
+        console.log("Hello!");
+    }, 3000);
+    
+    const numbers = [1, 2, 3, 4, 5];
+    
+    numbers.forEach(function(element, index, array){
+        array[index] = Math.pow(element, 2); 
+    });
+    
+    console.log(numbers);
+*/
+
+/* arrow functions: a concise way to write functions that you use only once. (parameters) => some code
+
+    // using function expression
+    // const msg = function() {
+    //     console.log("Hamdi");
+    // }
+
+    // using arrow function
+    const msg = (name, age) => {console.log(`Hello, ${name}`)
+    console.log(`You are ${age} old`)};
+
+    msg("Hamdi", 22);
+
+    setTimeout(() => console.log("Hello")
+    , 3000);
+    
+    const numbers = [1, 2, 3, 4, 5];
+    
+    const squares = numbers.map((element, index, array) => Math.pow(element, 2)
+    );
+    
+    console.log(squares);
+*/
+
+/* Object
+    const person = {
+        firstName: "Hamdi",
+        lastName: "Elgohary",
+        age: 22,
+        sayHello: () => console.log("Hello"),
+    };
+
+    console.log(person);
+    console.log(person.age);
+    person.sayHello();
+*/
+
+/* this keyword
+    const person = {
+        name: "Hamdi",
+        age: 22,
+        sayInfo: function(){console.log(`Hello, My name is ${this.name} and I am ${this.age} years old`)},
+    };
+
+    person.sayInfo();
+*/
+
+/* Constructor
+    function person(name, age) {
+        this.name = name,
+        this.age = age
+        this.identify = function(){console.log(`My name is ${this.name} and I am ${this.age}`)};
+    };
+
+    const person1 = new person("Hamdi", 22);
+
+    person1.identify();
+*/
+
+/* Classes
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        sayHello() {
+            console.log(`Hello from ${this.name}`);
+        }
+    }
+
+    const person1 = new Person("Hamdi", 22);
+    person1.sayHello();
+*/
+
+/* Static keywod
+    class util {
+        static PI = 3.14159;
+        static getDiameter(radius) {
+            return 2 * radius;
+        }
+
+        static getCircumference(radius) {
+            return 2 * this.PI * radius;
+        }
+    }
+
+    console.log(util.PI);
+    console.log(util.getCircumference(7));
+    
+    class Person {
+        static numOfPersons = 0;
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+            Person.numOfPersons++;
+        }
+    }
+    
+    const person1 = new Person("Hamdi", 22);
+    console.log(Person.numOfPersons);
+    const person2 = new Person("Ahmed", 16);
+    console.log(Person.numOfPersons);
+    const person3 = new Person("Loay", 51);
+    console.log(Person.numOfPersons);
+    const person4 = new Person("Sayed", 36);
+    console.log(Person.numOfPersons);
+*/
