@@ -1,0 +1,26 @@
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/038/999/230/small/ai-generated-swiss-alps-snowy-mountain-range-with-valleys-and-meadows-countryside-in-switzerland-landscape-golden-hour-majestic-fiery-sunset-sky-travel-destination-wallpaper-background-photo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+#clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#clock1 {
+    font-family: monospace;
+    font-size: 6.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(5px);
+    background-color: hsla(0, 0%, 100%, .1);
+    width: 100%;
+}
