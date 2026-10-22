@@ -1193,3 +1193,178 @@ super => the parent
     setInterval(updateClock, 1000);
 */
 
+/* Stop Watch Program
+
+    const time = document.getElementById("timer");
+
+    let timer = null;
+    let startTime = 0;
+    let elapsedTime = 0;
+    let isRunning = false;
+
+    console.log(Date.now())
+
+    function start() {
+        if (!isRunning) {
+            startTime = Date.now() - elapsedTime;
+            timer = setInterval(update, 10);
+            isRunning = true;
+        }
+    }
+
+    function stop() {
+        if (isRunning) {
+            clearInterval(timer);
+            elapsedTime = Date.now() - startTime;
+            isRunning = false;
+        }
+    }
+
+    function reset() {
+        clearInterval(timer);
+        startTime = 0;
+        elapsedTime = 0;
+        isRunning = false;
+        time.textContent = "00:00:00:00"
+    }
+
+    function update() {
+        const currentTime = Date.now();
+        elapsedTime = currentTime - startTime;
+
+        let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+        let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
+        let seconds = Math.floor(elapsedTime / 1000 % 60);
+        let milliseconds = Math.floor(elapsedTime % 1000 / 10);
+
+        hours = hours.toString().padStart(2, 0);
+        minutes = minutes.toString().padStart(2, 0);
+        seconds = seconds.toString().padStart(2, 0);
+        milliseconds = milliseconds.toString().padStart(2, 0);
+
+        time.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
+    }
+*/
+
+/* E26 Module: an external fime that contains reusable code that can be imported into JS files.
+    Write reusable code from many different apps.
+    Can contain variables, classes, functions ... and more.
+    introduced as part of ECMAScript 2015 update.
+
+    import {PI, getArea, getVolume, getCircumference, getSurfaceArea} from './util.js';
+    
+    console.log(PI);
+    console.log(getCircumference(3).toFixed(2));
+    console.log(getSurfaceArea(13).toFixed(2));
+    console.log(getVolume(13).toFixed(2));
+*/
+
+/* synchronous = Executes line by line consecutively in a sequential manner
+Code that waits for an operation to complete.
+
+    asynchronous = Allows multiple operations to be performed concurrently without waiting
+    Doesn't block the execution flow and allows the program to continue.
+    (I/O operations, network requests, fetching data)
+    Handled with: Callbacks, Promises, Async/Await
+    // Async timeout function
+    setTimeout(() => console.log("Task 1"), 3000);
+    
+    console.log("Task 2");
+    console.log("Task 3");
+    console.log("Task 4");
+
+    // sync
+    function func1(callback) {
+        setTimeout(() => {
+            console.log("Task 1");
+            callback();
+        }, 3000);
+        
+    }
+    
+    function func2() {
+        console.log("Task 2");
+        console.log("Task 3");
+        console.log("Task 4");
+    }
+    
+    func1(func2);
+*/
+
+/* Errors
+    try { } = Encloses code that might potentially cause an error
+    catch {} = Catch and handle any thrown Errors from try { }
+    finally {}=(optional) Always executes. Used mostly for clean up
+    ex. close files, close connections, release resources
+    
+    try {
+        console.log(x);
+        // NETWORK ERRORS
+        // PROMISE REJECTION
+        // SECURITY ERRORS
+    
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+    finally {
+        // CLOSE FILES
+        // CLOSE CONNECTIONS
+        // RELEASE RESOURCES
+        console.log("This will always executes");
+    }
+    
+    console.log("End of program has been reached successfully");
+
+    try {
+    
+        const dividend = window.prompt("Enter a dividend: ");
+        const divisor = window.prompt("Enter a divisor: ");
+    
+        if (divisor == 0){
+            throw new Error("You can't divide by zero!");
+        }
+    
+        if (isNaN(dividend) || isNaN(divisor)){
+            throw new Error("You have to enter only numbers!");
+        }
+    
+        const result = dividend / divisor;
+        console.lag(result);
+    }
+    
+    catch (error) {
+        console.error(error);
+    }
+    console.log("You have reached the end!");
+*/
+
+/* Calculator program
+
+    const res = document.getElementById("result");
+
+    function appendKey(key) {
+        if (res.textContent === "0") {
+            res.textContent = key;
+        }
+        else {
+            res.textContent += key;
+        }
+    }
+
+    function clearCalc() {
+        res.textContent = "";
+    }
+
+    function calculate() {
+        try
+        {
+            res.textContent = eval(res.textContent);
+        }
+        catch(error)
+        {
+            res.textContent = "Error";
+        }
+    }
+*/
