@@ -1,0 +1,147 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+
+    background:
+        radial-gradient(ellipse at top, #182b49 0%, transparent 55%),
+        #080d18;
+
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+}
+
+#h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    color: #e2e8f0;
+}
+
+body > div {
+    width: min(90%, 580px);
+    padding: 55px 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    background: rgba(17, 27, 46, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+#timer {
+    flex-basis: 100%;
+    margin-bottom: 25px;
+
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.7rem, 6vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-align: center;
+    white-space: nowrap;
+
+    color: #67e8f9;
+    text-shadow: 0 0 25px rgba(34, 211, 238, 0.2);
+    font-variant-numeric: tabular-nums;
+}
+
+button {
+    min-width: 105px;
+    padding: 13px 22px;
+
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#start {
+    background: #22c55e;
+    color: #052e16;
+    box-shadow: 0 5px 20px rgba(34, 197, 94, 0.12);
+}
+
+#start:hover {
+    background: #4ade80;
+    box-shadow: 0 6px 25px rgba(34, 197, 94, 0.22);
+}
+
+#stop {
+    background: #ef4444;
+    color: #fff;
+}
+
+#stop:hover {
+    background: #f87171;
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.18);
+}
+
+#reset {
+    background: transparent;
+    color: #cbd5e1;
+    border-color: #475569;
+}
+
+#reset:hover {
+    background: #263449;
+    border-color: #64748b;
+}
+
+button:focus-visible {
+    outline: 2px solid #67e8f9;
+    outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+    body > div {
+        padding: 40px 15px;
+        gap: 10px;
+        border-radius: 22px;
+    }
+
+    #timer {
+        letter-spacing: 0;
+        margin-bottom: 20px;
+    }
+
+    button {
+        min-width: 85px;
+        padding: 12px 14px;
+    }
+}
