@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="calculator">
+
+        <div class="display">
+            <h1 id="result"></h1>
+        </div>
+
+        <div class="buttons">
+            <button class="utility" id="C" onclick = "clearCalc()">AC</button>
+            <button class="utility" id="sign">+/-</button>
+            <button class="utility" id="percent" onclick = "appendKey('%')">%</button>
+            <button class="operator" id="/" onclick = "appendKey('/')">÷</button>
+
+            <button class="number" id="7" onclick = "appendKey('7')">7</button>
+            <button class="number" id="8" onclick = "appendKey('8')">8</button>
+            <button class="number" id="9" onclick = "appendKey('9')">9</button>
+            <button class="operator" id="*" onclick = "appendKey('*')">×</button>
+
+            <button class="number" id="4" onclick = "appendKey('4')">4</button>
+            <button class="number" id="5" onclick = "appendKey('5')">5</button>
+            <button class="number" id="6" onclick = "appendKey('6')">6</button>
+            <button class="operator" id="-" onclick = "appendKey('-')">−</button>
+
+            <button class="number" id="1" onclick = "appendKey('1')">1</button>
+            <button class="number" id="2" onclick = "appendKey('2')">2</button>
+            <button class="number" id="3" onclick = "appendKey('3')">3</button>
+            <button class="operator" id="+" onclick = "appendKey('+')">+</button>
+
+            <button class="number zero" id="0" onclick = "appendKey('0')">0</button>
+            <button class="number" id="decimal" onclick = "appendKey('.')">.</button>
+            <button class="operator" id="equals" onclick = "calculate()">=</button>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
