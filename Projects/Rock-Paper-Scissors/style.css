@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 30px 15px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #f1f5f9;
+    background: radial-gradient(circle at top, #1e293b, #080d18 70%);
+}
+
+/* Game title */
+#RPS {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+}
+
+/* Buttons container */
+body > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Game buttons */
+button {
+    width: 110px;
+    height: 110px;
+    border: 1px solid #334155;
+    border-radius: 25px;
+    background: rgba(30, 41, 59, 0.75);
+    font-size: 3rem;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-7px) scale(1.05);
+    background: #263750;
+    border-color: #38bdf8;
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+}
+
+button:active {
+    transform: scale(0.94);
+}
+
+/* Player and computer choices */
+#player,
+#computer {
+    width: min(340px, 90vw);
+    padding: 15px 20px;
+    border: 1px solid #263449;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.8);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+#player {
+    border-left: 4px solid #38bdf8;
+}
+
+#computer {
+    border-left: 4px solid #c084fc;
+}
+
+/* Game result */
+#res {
+    min-height: 45px;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 800;
+    color: #4ade80;
+}
+
+/* Score cards */
+#player-score,
+#computer-score {
+    width: min(340px, 90vw);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 18px;
+    border-radius: 12px;
+    background: #111c2e;
+    border: 1px solid #263449;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+#player-score {
+    border-bottom: 3px solid #38bdf8;
+}
+
+#computer-score {
+    border-bottom: 3px solid #c084fc;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    body {
+        gap: 18px;
+    }
+
+    body > div {
+        gap: 12px;
+    }
+
+    button {
+        width: 85px;
+        height: 85px;
+        font-size: 2.4rem;
+        border-radius: 20px;
+    }
+
+    #RPS {
+        letter-spacing: -0.5px;
+    }
+}
+
+.win {
+    color: rgb(37, 185, 37);
+}
+
+.lose {
+    color: rgb(226, 28, 28);
+}
