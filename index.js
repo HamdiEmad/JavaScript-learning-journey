@@ -1368,3 +1368,288 @@ Code that waits for an operation to complete.
         }
     }
 */
+
+/* DOM = DOCUMENT OBJECT MODEL|
+    Object{} that represents the page you see in the web browser and provides you with an API to interact with it.
+    Web browser constructs the DOM when it loads an HTML document,
+    and structures all the elements in a tree-like representation.
+    JavaScript can access the DOM to dynamically change the content, structure, and style of a web page.
+
+    console.log(document);
+    console.dir(document);
+    
+    document.title = "My website"
+    const welcomeMsg = document.getElementById("hello");
+    
+    welcomeMsg.textContent = "TEST";
+    document.body.style.backgroundColor = "Black";
+*/
+
+/* Element selectors
+
+    const heading = document.getElementById("hello");
+    heading.style.backgroundColor = "red";
+
+    const fruits = document.getElementsByClassName("fruits");
+    console.log(fruits);
+    for (let fruit of fruits)
+        fruit.style.backgroundColor = "yellow";
+    Array.from(fruits).forEach(fruit => {
+        fruit.style.backgroundColor = "blue";
+    })
+
+    const h4Elements = document.getElementsByTagName("h4");
+    const list = document.getElementsByTagName("li");
+    for (let element of h4Elements)
+        element.style.backgroundColor = "yellow";
+    for (let element of list)
+    element.style.backgroundColor = "cyan";
+    
+    const element = document.querySelector(".fruits");
+    element.style.backgroundColor = "yellow";
+
+    const foods = document.querySelectorAll("li");
+    
+    foods.forEach(food => {
+        food.style.backgroundColor = "yellow";
+    })
+*/
+
+/* DOM naviggation
+
+    const element = document.getElementById("u1");
+    const firstChild = element.firstElementChild;
+    firstChild.style.backgroundColor = "yellow";
+
+    const elements = document.querySelectorAll("ul");
+    elements.forEach(element => {
+        const lastChild = element.lastElementChild;
+        lastChild.style.backgroundColor = "cyan";
+    });
+
+    const element = document.getElementById('1');
+    element.nextElementSibling.style.backgroundColor = "yellow";
+    
+    const element = document.getElementById('2');
+    element.previousElementSibling.style.backgroundColor = "lightgreen";
+    
+    const element = document.getElementById('3');
+    element.parentElement.style.backgroundColor = "lightgreen";
+
+    const element = document.getElementById('u1');
+    const children = element.children;
+    Array.from(children).forEach(child =>{
+        child.style.backgroundColor = "red";
+    })
+*/
+
+/* Add & change HTML elements using JS
+
+    const newH1 = document.createElement("h1");
+    newH1.textContent = "Hamdi";
+    newH1.id = "myH1";
+    newH1.style.color = "red";
+    newH1.style.textAlign = "center";
+
+    // document.body.prepend(newH1);
+    //document.getElementById("box1").prepend(newH1);
+    // const box2 = document.getElementById("box2");
+    // document.body.insertBefore(newH1, box2);
+
+    // const boxes = document.querySelectorAll(".box");
+    // document.body.insertBefore(newH1, boxes[2]);
+    // document.body.append(newH1);
+    // document.body.removeChild(newH1);
+    // document.getElementById("box1").append(newH1);
+    // document.getElementById("box1").removeChild(newH1);
+*/
+
+/* eventListener :Listen for specific events to create interactive web pages
+events: click, mouseover, mouseout
+.addEventListener(event, callback);
+
+    const box = document.getElementById("box");
+
+    box.addEventListener("click", event => {
+        event.target.style.backgroundColor = "tomato";
+        event.target.textContent = "OUGH! 😊";
+    });
+
+    box.addEventListener("mouseover", event => {
+        event.target.style.backgroundColor = "blue";
+        event.target.textContent = "HEY! 😊";
+    })
+
+    box.addEventListener("mouseout", event => {
+        event.target.style.backgroundColor = "aqua";
+        event.target.textContent = "Click me 😊";
+    })
+*/
+
+/* Key events
+
+    document.addEventListener("keydown", event => {
+        console.log(event.key);
+    })
+
+    document.addEventListener("keyup", event => {
+        console.log(event.key);
+    })
+    
+    const box = document.getElementById("box");
+    
+    document.addEventListener("keydown", event => {
+        box.style.backgroundColor = "cyan";
+        console.log(event.key);
+    })
+    
+    document.addEventListener("keyup", event => {
+        box.style.backgroundColor = "tomato";
+        console.log(event.key);
+    })
+*/
+
+/* Show & hide HTML element using JS
+
+    const btn = document.getElementById("btn");
+    const img = document.getElementById("image");
+    let isShown = true;
+
+    btn.addEventListener("click", event => {
+        if (isShown) {
+            img.style.visibility = "hidden";
+            btn.textContent = "show";
+            isShown = false;
+        }
+        else {
+            img.style.visibility = "visible";
+            btn.textContent = "hide";
+            isShown = true;
+        }
+    })
+*/
+
+/* NodeList: Static collection of HTML elements by (id, class, element)
+    Can be created by using querySelectorAll()
+    Similar to an array, but no (map, filter, reduce)
+    NodeList won't update to automatically reflect changes
+
+    let btns = document.querySelectorAll(".btn");
+    
+    const newbtn = document.createElement("button");
+    newbtn.textContent = "btn5";
+    newbtn.classList = "btn";
+    document.body.append(newbtn);
+    
+    btns.forEach(button => {
+        button.addEventListener("click", event => {
+            event.target.remove();
+        });
+        
+        button.addEventListener("mouseover", event => {
+            event.target.style.backgroundColor = "lightgreen";
+        });
+        
+        button.addEventListener("mouseout", event => {
+            event.target.style.backgroundColor = "red";
+        });
+    });
+    
+    btns = document.querySelectorAll(".btn");
+*/
+
+/* classList: Element property in JavaScript used to interact
+with an element's list of classes (CSS classes)
+Allows you to make reusable classes for many elements
+across your webpage.
+
+    btn.classList.add("enabled");
+    btn.classList.remove("enabled");
+    
+    btn.addEventListener("mouseover", event => {
+        event.target.classList.add("hover");
+    })
+
+    btn.addEventListener("mouseover", event => {
+        event.target.classList.toggle("hover");
+    })
+    
+    btn.addEventListener("mouseout", event => {
+        event.target.classList.toggle("hover");
+    })
+
+    const btn = document.getElementById("btn");
+    
+    btn.classList.add("enabled");
+    
+    btn.addEventListener("click", event => {
+        if (event.target.classList.contains("disabled")) {
+            event.target.textContent += " SHIT";
+        }
+        else {
+            event.target.classList.replace("enabled", "disabled");
+        }
+    });
+*/
+
+/* ROCK PAPER SCISSORS
+
+    const playerChoice = document.getElementById("player");
+    const computerChoice = document.getElementById("computer");
+    const playerPoints = document.getElementById("player-score");
+    const computerPoints = document.getElementById("computer-score");
+    const result = document.getElementById("result");
+
+    const choise = ["ROCK", "PAPER", "SCISSORS"];
+    let playerScore = 0;
+    let computerScore = 0;
+
+    const btns = document.querySelectorAll(".btns");
+    btns.forEach(btn => {
+        btn.addEventListener("click", event => {
+            let game = computer();
+            if (event.target === btns[0]) {
+                playerChoice.textContent = "Player: " + choise[0];
+                calcWinner(0, game);
+            }
+            else if (event.target === btns[1]) {
+                playerChoice.textContent = "Player: " + choise[1];
+                calcWinner(1, game);
+            }
+            else {
+                playerChoice.textContent = "Player: " + choise[2];
+                calcWinner(2, game);
+            }
+        })
+    });
+
+    function computer() {
+        let comp = Math.floor(Math.random() * 3);
+        computerChoice.textContent = "Computer: " + choise[comp];
+        return comp;
+    }
+
+    function calcWinner(player, computer) {
+        result.classList.remove("lose", "win");
+        if (player === computer)
+            result.textContent = "It's a TIE";
+        else {
+            if (computer - player === 1 ||  
+                player - computer === 2) {
+                result.textContent = "Computer wins";
+                result.classList.add("lose");
+                computerScore++;
+            }
+            else if (computer - player === 2 || player - computer === 1) {
+                result.textContent = "Player wins";
+                result.classList.add("win");
+                playerScore++;
+            }
+            else {
+                result.textContent = "INVALID";
+            }
+            playerPoints.textContent = "Player score: " + playerScore;
+            computerPoints.textContent = "Computer score: " + computerScore;
+        }
+    }
+*/
