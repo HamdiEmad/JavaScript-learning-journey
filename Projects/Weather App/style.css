@@ -1,0 +1,250 @@
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    padding: 24px;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #172b4d;
+
+    background: linear-gradient(
+        135deg,
+        #e0f2fe 0%,
+        #f0f9ff 50%,
+        #fff7ed 100%
+    );
+}
+
+/* ===== Search Form ===== */
+form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.cityInput {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 18px;
+
+    font-size: 15px;
+    color: #172b4d;
+    background: #ffffff;
+
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+    outline: none;
+
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.05);
+    transition: 0.25s ease;
+}
+
+.cityInput::placeholder {
+    color: #94a3b8;
+}
+
+.cityInput:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+/* ===== Search Button ===== */
+button {
+    padding: 15px 20px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+
+    background: #f97316;
+    border: none;
+    border-radius: 14px;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    box-shadow: 0 5px 12px rgba(249, 115, 22, 0.2);
+    transition: 0.25s ease;
+}
+
+button:hover {
+    background: #ea580c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(249, 115, 22, 0.25);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* ===== Weather Card ===== */
+.card {
+    width: 100%;
+    max-width: 370px;
+    min-height: 420px;
+    padding: 38px 28px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(30, 64, 175, 0.09),
+        0 4px 12px rgba(30, 64, 175, 0.04);
+
+    animation: cardEnter 0.6s ease-out;
+}
+
+/* ===== City Name ===== */
+.cityDisplay {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    color: #172b4d;
+    overflow-wrap: anywhere;
+}
+
+/* ===== Temperature ===== */
+.temp {
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -3px;
+    color: #0f172a;
+}
+
+/* ===== Humidity ===== */
+.humidity {
+    padding: 10px 16px;
+
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+
+    background: #f1f5f9;
+    border-radius: 12px;
+}
+
+/* ===== Weather Description ===== */
+.desc {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #0284c7;
+    text-transform: capitalize;
+}
+
+/* ===== Weather Emoji ===== */
+.emoji {
+    font-size: 5.5rem;
+    line-height: 1.1;
+    margin-top: 2px;
+
+    filter: drop-shadow(0 8px 10px rgba(249, 115, 22, 0.12));
+    animation: weatherFloat 3s ease-in-out infinite;
+}
+
+/* ===== Error Message ===== */
+.error {
+    display: none;
+    max-width: 100%;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #dc2626;
+
+    background: #fef2f2;
+    padding: 10px 14px;
+    border-radius: 10px;
+}
+
+/* ===== Animations ===== */
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes weatherFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* ===== Tablet & Mobile ===== */
+@media (max-width: 480px) {
+    body {
+        padding: 18px;
+        gap: 22px;
+    }
+
+    form {
+        flex-direction: column;
+        max-width: 370px;
+    }
+
+    .cityInput,
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .card {
+        max-width: 370px;
+        min-height: 390px;
+        padding: 30px 20px;
+        gap: 18px;
+        border-radius: 25px;
+    }
+
+    .cityDisplay {
+        font-size: 1.8rem;
+    }
+
+    .temp {
+        font-size: 3.8rem;
+    }
+
+    .emoji {
+        font-size: 4.8rem;
+    }
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
