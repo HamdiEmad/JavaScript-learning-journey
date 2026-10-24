@@ -1653,3 +1653,435 @@ across your webpage.
         }
     }
 */
+
+/* Image slider
+
+    const imgs = document.querySelectorAll(".images");
+
+    imgs[0].classList.add("show");
+
+    let slider = 0;
+
+    const right = document.getElementById("right");
+
+    const left = document.getElementById("left");
+
+    right.addEventListener("click", event => {
+        imgs[slider].classList.add("hide");
+        imgs[slider].classList.remove("show");
+        slider = (slider + 1) % 4;
+        imgs[slider].classList.add("show");
+        console.log(slider);
+        imgs[slider].classList.remove("hide");
+    });
+
+    left.addEventListener("click", event => {
+        imgs[slider].classList.add("hide");
+        imgs[slider].classList.remove("show");
+        slider = slider === 0 ? 3 : slider - 1 ;
+        imgs[slider].classList.add("show");
+        console.log(slider);
+        imgs[slider].classList.remove("hide");
+    });
+*/
+
+/* callback Hell: Situation in JavaScript where callbacks
+are nested within other callbacks to the
+degree where the code is difficult to read.
+old pattern to handle asynchronous functions.
+Use Promises + async/await to avoid Callback Hell
+
+    function task1() {
+        console.log("Task 1 complete");
+    }
+
+    function task2() {
+        console.log("Task 2 complete");
+    }
+
+    function task3() {
+        console.log("Task 3 complete");
+    }
+
+    function task4() {
+        console.log("Task 4 complete");
+    }
+
+    task1();
+    task2();
+    task3();
+    task4();
+    console.log("All tasks complete");
+
+    function task1(callback) {
+        setTimeout(() => {
+            console.log("Task 1 complete");
+            callback();
+        }, 2000);
+    }
+    
+    function task2(callback) {
+        setTimeout(() => {
+            console.log("Task 2 complete");
+            callback();
+        }, 1000);
+    }
+    
+    function task3(callback) {
+        setTimeout(() => {
+            console.log("Task 3 complete");
+            callback();
+        }, 1000);
+    }
+    
+    function task4(callback) {
+        setTimeout(() => {
+            console.log("Task 4 complete");
+            callback();
+        }, 1500);
+    }
+    
+    task1(() => {
+        task2(() => {
+            task3(() => {
+                task4(() => {console.log("All tasks complete");});
+            });
+        });
+    });
+*/
+
+/* Promise: An Object that manages asynchronous operations.
+Wrap a Promise Object around {asynchronous code}
+"I promise to return a value"
+PENDING -> RESOLVED or REJECTED
+new Promise((resolve, reject) => {asynchronous code})
+
+DO THESE CHORES IN ORDER
+
+1. WALK THE DOG
+2. CLEAN THE KITCHEN
+3. TAKE OUT THE TRASH
+
+    function walkDog() {
+        return new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                const dogWalked = true;
+                if (dogWalked)
+                    resolve("You walk the dog 🐕");
+                else
+                    reject("You DIDN'T walk the dog");
+            }, 1500);
+        });
+    }
+
+    function claenKitchen() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const cleanedKitchen = false;
+                if (cleanedKitchen)
+                    resolve("You clean the kitchen 🧹");
+                else
+                    reject("You DIDN'T clean the kitchen");
+            }, 2500);
+        });
+    }
+
+    function takeOutTrash() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const takeTrash = true;
+                if (takeTrash)
+                    resolve("You take out the trash 🗑️")
+                else
+                    reject("You DIDN'T take out the trash");
+            }, 500);
+        });
+    }
+
+    walkDog().then(value => {console.log(value); return claenKitchen()})
+            .then(value => {console.log(value); return takeOutTrash()})
+            .then(value => {console.log(value); console.log("You finished all of the chores;")}).catch(error => console.error(error));
+
+*/
+
+/* Asynch/Await: Async = makes a function return a promise
+Await = makes an async function wait for a promise
+
+Allows you write asynchronous code in a synchronous manner
+Async doesn't have resolve or reject parameters
+Everything after Await is placed in an event queue
+
+    function walkDog() {
+        return new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                const dogWalked = true;
+                if (dogWalked)
+                    resolve("You walk the dog 🐕");
+                else
+                    reject("You DIDN'T walk the dog");
+            }, 1500);
+        });
+    }
+
+    function claenKitchen() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const cleanedKitchen = true;
+                if (cleanedKitchen)
+                    resolve("You clean the kitchen 🧹");
+                else
+                    reject("You DIDN'T clean the kitchen");
+            }, 2500);
+        });
+    }
+
+    function takeOutTrash() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const takeTrash = true;
+                if (takeTrash)
+                    resolve("You take out the trash 🗑️")
+                else
+                    reject("You DIDN'T take out the trash");
+            }, 500);
+        });
+    }
+
+    async function doChores() {
+        try {
+            const walkDogResult = await walkDog();
+            console.log(walkDogResult);
+            
+            const claenKitchenResult = await claenKitchen();
+            console.log(claenKitchenResult);
+            
+            const takeOutTrashResult = await takeOutTrash();
+            console.log(takeOutTrashResult);
+            
+            console.log("You finished all the chores");
+        }
+        catch(error) {
+            console.error(error);
+        }
+
+    }
+
+    doChores();
+*/
+
+/* JSON = (JavaScript Object Notation) data-interchange format
+Used for exchanging data between a server and a web application
+JSON files {key:value} OR [value1, value2, value3]]
+
+JSON.stringify() = converts a JS object to a JSON string.
+JSON.parse() = converts a JSON string to a JS objec
+
+    const names = ["Ahmed", "Mohamed", "Ibrahim", "Hamdi"];
+    console.log(names);
+
+    const jsonString = JSON.stringify(names);
+    console.log(jsonString);
+
+    const person = {"name": "Ahmed", "age": 30, "isEmployed": true, "hobbies": ["Reading", "Football", "GYM"]};
+    console.log(person);
+
+    const jsonString1 = JSON.stringify(person);
+    console.log(jsonString1);
+
+    const peaple = [{"name": "Ahmed", "age": 23},
+                    {"name": "Mohamed", "age": 21},
+                    {"name": "Islam", "age": 24},
+                    {"name": "Alaa", "age": 17}];
+    console.log(peaple);
+
+    const jsonString2 = JSON.stringify(peaple);
+    console.log(jsonString2);
+
+    const jsonNames = `["Ahmed", "Mohamed", "Ibrahim", "Hamdi"]`;
+    console.log(jsonNames);
+    
+    const parsedNames = JSON.parse(jsonNames);
+    console.log(parsedNames);
+    
+    const jsonPerson = `{"name": "Ahmed", "age": 30, "isEmployed": true, "hobbies": ["Reading", "Football", "GYM"]}`;
+    console.log(jsonPerson);
+    
+    const parsedPerson = JSON.parse(jsonPerson);
+    console.log(parsedPerson);
+    
+    const jsonPeaple = `[{"name": "Ahmed", "age": 23},
+                    {"name": "Mohamed", "age": 21},
+                    {"name": "Islam", "age": 24},
+                    {"name": "Alaa", "age": 17}]`;
+    console.log(jsonPeaple);
+    
+    const parsedPeople = JSON.parse(jsonPeaple);
+    console.log(parsedPeople);
+    
+    fetch("names.json")
+        .then(response => {response.json()
+        .then(value => console.log(value));
+    });
+    
+    fetch("person.json")
+        .then(response => {response.json()
+        .then(value => console.log(value));
+    });
+    
+    fetch("people.json")
+        .then(response => {response.json()
+        .then(values => values.forEach(value => console.log(value)));
+    });
+*/
+
+/* Fetch data from API :Function used for making HTTP requests to fetch resources.
+(JSON style data, images, files)
+Simplifies asynchronous data fetching in JavaScript and
+used for interacting with APIs to retrieve and send
+data asynchronously over the web.
+fetch(ur1, {options})
+
+    async function fetchData() {
+        try {
+            const pokemon = document.getElementById("poke").value.toLowerCase();
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+
+            if (!response.ok) {
+                throw new Error("Couldn't fetch resource");
+            }
+
+            const data = await response.json();
+            const pokemonSprite = data.sprites.front_default;
+            const imgElement = document.getElementById("image");
+
+            imgElement.src = pokemonSprite;
+            imgElement.style.display = "block";
+        }
+        catch(error) {
+            console.error(error);
+        }
+    }
+    
+    fetchData();
+*/
+
+
+/* Weather APP
+
+    const weatherForm = document.getElementById("weather");
+    const cityInput = document.querySelector(".cityInput");
+    
+    const cityDisplay = document.querySelector(".cityDisplay");
+    const tempDisplay = document.querySelector(".temp");
+    const humidityDisplay = document.querySelector(".humidity");
+    const descDisplay = document.querySelector(".desc");
+    const emojiDisplay = document.querySelector(".emoji");
+    const errorDisplay = document.querySelector(".error");
+    
+    if (errorDisplay) {
+        errorDisplay.style.display = "none";
+    }
+    
+    if (weatherForm && cityInput) {
+        weatherForm.addEventListener("submit", async event => {
+            event.preventDefault();
+    
+            const city = cityInput.value.trim();
+    
+            if (!city) {
+                showError("Please enter a city");
+                return;
+            }
+    
+            try {
+                clearWeatherDisplay();
+                if (errorDisplay) errorDisplay.style.display = "none";
+    
+                const geoResponse = await fetch(
+                    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`
+                );
+    
+                if (!geoResponse.ok) {
+                    throw new Error("Failed to find the city");
+                }
+    
+                const geoData = await geoResponse.json();
+    
+                if (!geoData.results || geoData.results.length === 0) {
+                    showError("City not found. Please try another city.");
+                    return;
+                }
+    
+                const location = geoData.results[0];
+    
+                const weatherResponse = await fetch(
+                    `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code`
+                );
+    
+                if (!weatherResponse.ok) {
+                    throw new Error("Failed to fetch weather data");
+                }
+    
+                const weatherData = await weatherResponse.json();
+                const current = weatherData.current;
+    
+                if (cityDisplay) cityDisplay.textContent = location.name;
+                if (tempDisplay) tempDisplay.textContent = `${Math.round(current.temperature_2m)}°C`;
+                if (humidityDisplay) humidityDisplay.textContent = `Humidity: ${current.relative_humidity_2m}%`;
+                if (descDisplay) descDisplay.textContent = getWeatherDescription(current.weather_code);
+                if (emojiDisplay) emojiDisplay.textContent = getWeatherEmoji(current.weather_code);
+    
+                cityInput.value = "";
+    
+            } catch (error) {
+                showError("Something went wrong. Please try again.");
+                console.error(error);
+            }
+        });
+    }
+    
+    function showError(message) {
+        if (errorDisplay) {
+            errorDisplay.textContent = message;
+            errorDisplay.style.display = "block";
+        }
+        clearWeatherDisplay();
+    }
+    
+    function clearWeatherDisplay() {
+        if (cityDisplay) cityDisplay.textContent = "";
+        if (tempDisplay) tempDisplay.textContent = "";
+        if (humidityDisplay) humidityDisplay.textContent = "";
+        if (descDisplay) descDisplay.textContent = "";
+        if (emojiDisplay) emojiDisplay.textContent = "";
+    }
+    
+    function getWeatherDescription(code) {
+        if (code === 0) return "Clear sky";
+        if ([1, 2, 3].includes(code)) return "Partly cloudy";
+        if ([45, 48].includes(code)) return "Foggy";
+        if ([51, 53, 55, 56, 57].includes(code)) return "Drizzle";
+        if ([61, 63, 65, 66, 67].includes(code)) return "Rainy";
+        if ([71, 73, 75, 77].includes(code)) return "Snowy";
+        if ([80, 81, 82].includes(code)) return "Rain showers";
+        if ([85, 86].includes(code)) return "Snow showers";
+        if ([95, 96, 99].includes(code)) return "Thunderstorm";
+    
+        return "Unknown weather";
+    }
+    
+    function getWeatherEmoji(code) {
+        if (code === 0) return "☀️";
+        if (code === 1) return "🌤️";
+        if (code === 2) return "⛅";
+        if (code === 3) return "☁️";
+        if ([45, 48].includes(code)) return "🌫️";
+        if ([51, 53, 55, 56, 57].includes(code)) return "🌦️";
+        if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "🌧️";
+        if ([71, 73, 75, 77, 85, 86].includes(code)) return "❄️";
+        if ([95, 96, 99].includes(code)) return "⛈️";
+    
+        return "🌡️";
+    }
+*/
+
